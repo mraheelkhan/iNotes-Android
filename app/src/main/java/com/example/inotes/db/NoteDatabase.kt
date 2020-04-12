@@ -5,13 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.inotes.db.dao.NoteDao
+import com.example.inotes.db.dao.UserDao
 
 @Database(
-    entities = [ Note::class ],
+    entities = arrayOf(Note::class, UserEntity::class),
     version = 1
 )
 abstract class NoteDatabase : RoomDatabase(){
     abstract fun getNoteDao() : NoteDao
+    abstract fun getUserDao() : UserDao
 
     companion object {
         @Volatile private var instance : NoteDatabase?  = null

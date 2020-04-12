@@ -34,10 +34,7 @@ class NoteAdaptor(val notes: List<Note>, var clickListner : onNoteItemClickListe
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
-
-
         return NoteViewHolder(
-
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.note_list_layout, parent, false)
         )

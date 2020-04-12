@@ -8,7 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.inotes.adaptors.NoteAdaptor
 import com.example.inotes.db.Note
 import com.example.inotes.db.NoteDatabase
+import com.example.inotes.model.UserModel
+import com.example.inotes.retrofit.RetrofitClient
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity(), NoteAdaptor.onNoteItemClickListener {
 
@@ -17,6 +22,12 @@ class MainActivity : AppCompatActivity(), NoteAdaptor.onNoteItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        floatingActionButtonTop.setOnClickListener {
+
+            val intent = Intent(this, ListActivity::class.java)
+            startActivity(intent)
+        }
 
         floatingActionButton.setOnClickListener {
             val intent = Intent(this, addActivity::class.java)

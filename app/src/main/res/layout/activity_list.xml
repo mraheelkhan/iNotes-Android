@@ -6,24 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#f3f3f3"
-    tools:context=".MainActivity">
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButtonTop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_margin="20dp"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+    tools:context=".ListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notes_recycleview"
+        android:id="@+id/userlist_recycleview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/floatingActionButtonList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
