@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitClient {
-    private const val BASE_URL = "http://192.168.8.101/androidapi/public/"
+    private const val BASE_URL = "https://reqres.in/"
 //    private const val BASE_URL = "https://api.github.com/users/list"
 
     val instance: API by lazy {

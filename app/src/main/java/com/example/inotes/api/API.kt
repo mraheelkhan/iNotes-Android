@@ -9,4 +9,9 @@ interface API {
     @GET("usersList")
     fun getAllUsers() : Call<List<UserModel>>
 
+//    @GET("/api/users?page=2")
+//    fun getAllUsersReq() : Call<List<ReqresTestModel>>
+
+//    @GET("/api/users?page=2")
+//    fun getAll() : Call<ReqresTestModel>
 }

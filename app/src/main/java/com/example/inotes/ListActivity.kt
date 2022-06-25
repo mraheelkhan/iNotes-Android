@@ -31,26 +31,26 @@ class ListActivity : AppCompatActivity() {
         val userStore = ArrayList<UserEntity>()
         var dbUsers = ArrayList<UserModel>()
 
-        RetrofitClient.instance.getAllUsers()
-            .enqueue(object : Callback<List<UserModel>>{
-                override fun onFailure(call: Call<List<UserModel>>, t: Throwable) {
-                    Log.e("Notworking", "sajflsajfasjdf WORKING")
-                }
-
-                override fun onResponse(
-                    call: Call<List<UserModel>>,
-                    response: Response<List<UserModel>>
-                ) {
-                    val users = response?.body();
-                    users?.forEach {
-                        userStore.add(UserEntity(it.name, it.store.toString()))
+            RetrofitClient.instance.getAllUsers()
+                .enqueue(object : Callback<List<UserModel>>{
+                    override fun onFailure(call: Call<List<UserModel>>, t: Throwable) {
+                        Log.e("Notworking", "sajflsajfasjdf WORKING")
                     }
-                    Thread{
-                        appDb.getUserDao().insertAllUsers(userStore)
-                    }.start()
-                }
 
-            })
+                    override fun onResponse(
+                        call: Call<List<UserModel>>,
+                        response: Response<List<UserModel>>
+                    ) {
+                        val users = response?.body();
+                        users?.forEach {
+                            userStore.add(UserEntity(it.name, it.store.toString()))
+                        }
+                        Thread{
+                            appDb.getUserDao().insertAllUsers(userStore)
+                        }.start()
+                    }
+
+                })
 
     }
 }

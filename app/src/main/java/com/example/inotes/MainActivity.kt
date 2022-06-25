@@ -4,11 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.inotes.adaptors.NoteAdaptor
 import com.example.inotes.db.Note
 import com.example.inotes.db.NoteDatabase
-import com.example.inotes.model.UserModel
 import com.example.inotes.retrofit.RetrofitClient
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -25,8 +25,23 @@ class MainActivity : AppCompatActivity(), NoteAdaptor.onNoteItemClickListener {
 
         floatingActionButtonTop.setOnClickListener {
 
-            val intent = Intent(this, ListActivity::class.java)
-            startActivity(intent)
+            Log.i("CLICKED", "CLICKED BTN")
+            /*RetrofitClient.instance.getAllUsersReq()
+                .enqueue(object : Callback<List<ReqresTestModel>>{
+                    override fun onFailure(call: Call<List<ReqresTestModel>>, t: Throwable) {
+                        Log.e("CLICKED", t.message.toString())
+                    }
+
+                    override fun onResponse(
+                        call: Call<List<ReqresTestModel>>,
+                        response: Response<List<ReqresTestModel>>
+                    ) {
+                        Log.i("CLICKED", response.body().toString())
+                        Toast.makeText(applicationContext, response.body().toString(), Toast.LENGTH_SHORT).show()
+                    }
+                })*/
+//            val intent = Intent(this, ListActivity::class.java)
+//            startActivity(intent)
         }
 
         floatingActionButton.setOnClickListener {
@@ -38,6 +53,7 @@ class MainActivity : AppCompatActivity(), NoteAdaptor.onNoteItemClickListener {
         val viewManager = LinearLayoutManager(this)
         notes_recycleview.setHasFixedSize(true)
         notes_recycleview.layoutManager = viewManager
+
 
 
         val appDb = NoteDatabase(this)
